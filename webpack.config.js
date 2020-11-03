@@ -3,9 +3,13 @@ let absolutePath = path.join(__dirname, 'public');
 
 module.exports = {
   entry: './src/app.js',
+  // entry: './src/sandbox/hoc.js',
   output: {
     path: absolutePath,
     filename: 'bundle.js',
+  },
+  performance: {
+    hints: false,
   },
   module: {
     rules: [
@@ -27,5 +31,6 @@ module.exports = {
   devServer: {
     // Serve index.html as the base
     contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true,
   },
 };
