@@ -13,33 +13,44 @@ const store = configureStore();
 
 store.subscribe(() => {
   const { expenses, filters } = store.getState();
-  const filterd = getVisibleExpenses(expenses, filters);
-  // console.log(filterd);
+
+  console.log(filters);
 });
 
 store.dispatch(
   addExpense({
-    description: 'New House',
-    note: 'took a lot of my savings.',
-    amount: 450000,
+    description: 'Water Bill',
+    amount: 4500,
     createdAt: 1,
   })
 );
 
 store.dispatch(
   addExpense({
-    description: 'Brown Coach',
-    note: 'had to replace the old one',
+    createdAt: 1000,
+    description: 'Gas Bill',
     amount: 3500,
-    createdAt: 0,
   })
 );
 
+store.dispatch(
+  addExpense({
+    description: 'Rent',
+    note: 'had to replace the old one',
+    amount: 1,
+    createdAt: 0,
+  })
+);
+setTimeout(() => {
+  //  store.dispatch(setTextFilter('new'));
+
+  console.log('sadsa');
+}, 2000);
 const jsx = (
   <Provider store={store}>
     <AppRouter />;
   </Provider>
 );
-store.dispatch(setTextFilter('A_'));
+
 //console.log(store.getState());
 ReactDOM.render(jsx, document.getElementById('root'));
