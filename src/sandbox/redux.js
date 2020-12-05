@@ -43,7 +43,7 @@ const countReducer = (state = { count: 0 }, action) => {
 const store = createStore(countReducer);
 
 const unsbscribe = store.subscribe(() => {
-  console.log(store.getState());
+  store.getState();
 });
 
 // unsbscribe();

@@ -69,7 +69,6 @@ const expenseReducer = (state = [], action) => {
     }
     case 'EDIT_EXPENSE': {
       return state.map((item) => {
-        console.log(action.id, item.id, 'test');
         if (item.id === action.id) {
           return { ...item, ...action.expense };
         } else {
@@ -133,13 +132,10 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
       if (sortBy === 'date') {
         return a.createdAt < b.createdAt ? -1 : 1;
       } else {
-        console.log(a.amount < b.amount);
-        console.log('a amount', a.amount, ' b amount: ', b.amount);
         return a.amount < b.amount ? 1 : -1;
       }
     });
 
-  console.log('result', result);
   return result;
 };
 
@@ -152,12 +148,11 @@ const store = createStore(
 
 store.subscribe(() => {
   const expneses = store.getState();
-  console.log(expneses);
+  onsole.log(expneses);
   const visibleExpenses = getVisibleExpenses(
     expneses.expenses,
     expneses.filters
   );
-  console.log(visibleExpenses);
 });
 
 const id1 = store.dispatch(
