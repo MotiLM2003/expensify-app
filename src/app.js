@@ -24,6 +24,33 @@ store.dispatch(
   })
 );
 
+store.dispatch(
+  addExpense({
+    id: 2,
+    description: 'Rent Bill',
+    amount: 5500,
+    createdAt: 1,
+  })
+);
+
+store.dispatch(
+  addExpense({
+    id: 3,
+    description: 'Test Bill',
+    amount: 25,
+    createdAt: 1,
+  })
+);
+
+store.dispatch(
+  addExpense({
+    id: 4,
+    description: 'Test - 2 Bill',
+    amount: 178.5,
+    createdAt: 1,
+  })
+);
+
 const jsx = (
   <Provider store={store}>
     <AppRouter />;

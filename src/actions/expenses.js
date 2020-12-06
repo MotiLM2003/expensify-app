@@ -9,7 +9,7 @@ export const addExpense = (expense) => {
 };
 
 // REMOVE EXPENSE
-export const removeExpense = ({ id }) => {
+export const removeExpense = (id) => {
   return {
     type: 'REMOVE_EXPENSE',
     id: id,
@@ -17,8 +17,10 @@ export const removeExpense = ({ id }) => {
 };
 
 // EDIT EXPENSE
-export const editExpense = ({ id, expense }) => ({
-  type: 'EDIT_EXPENSE',
-  id: id,
-  expense: expense,
-});
+export const editExpense = (expense) => {
+  console.log('pap', expense);
+  return {
+    type: 'EDIT_EXPENSE',
+    expense: expense,
+  };
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => (
-  <ul class='nav'>
+  <ul className='nav'>
     <li>
       <NavLink to='/' exact activeClassName='active-link'>
         Dashboard

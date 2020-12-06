@@ -10,6 +10,7 @@ class ExpenseForm extends React.Component {
     super(props);
     const { expense } = this.props;
     this.state = {
+      id: expense ? expense.id : 0,
       description: expense ? expense.description : '',
       note: expense ? expense.note : '',
       amount: expense ? (expense.amount / 100).toString() : '',
@@ -55,8 +56,8 @@ class ExpenseForm extends React.Component {
       });
     } else {
       this.setState({ error: '' });
-      // this.props.dispatch(addExpense(this.state));
       this.props.onSubmit({
+        id: this.state.id,
         description: this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
@@ -102,6 +103,7 @@ class ExpenseForm extends React.Component {
           ></textarea>
 
           <button>Add expense</button>
+
           <div></div>
         </form>
       </div>

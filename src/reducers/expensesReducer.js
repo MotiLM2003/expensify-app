@@ -6,9 +6,10 @@ export default (state = [], action) => {
     case 'REMOVE_EXPENSE': {
       return state.filter(({ id }) => id !== action.id);
     }
+
     case 'EDIT_EXPENSE': {
       return state.map((item) => {
-        if (item.id === action.id) {
+        if (item.id === action.expense.id) {
           return { ...item, ...action.expense };
         } else {
           return item;
