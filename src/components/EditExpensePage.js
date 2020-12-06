@@ -1,6 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import ExpenseForm from './ExpenseForm';
 const EditExpensePage = (props) => {
-  return <p>Editing the expense with id of {props.match.params.id}</p>;
+  const onUpdateExpense = (expense) => {
+    console.log('updating', expense);
+  };
+  return (
+    <div>
+      <h1>Edit Expense</h1>
+      <ExpenseForm expense={props.expense} onSubmit={onUpdateExpense} />
+    </div>
+  );
 };
 
-export default EditExpensePage;
+const stateToProps = (state, props) => () => {
+  return {
+    expense: state.expenses.find(
+      (x) => x.id === parseInt(props.match.params.id)
+    ),
+  };
+};
+
+export default connect(stateToProps)(EditExpensePage);

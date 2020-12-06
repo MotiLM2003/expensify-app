@@ -1,7 +1,6 @@
 export default (state = [], action) => {
   switch (action.type) {
     case 'ADD_EXPENSE': {
-      console.log('add expense', action.expense);
       return [...state, action.expense];
     }
     case 'REMOVE_EXPENSE': {

@@ -2,6 +2,7 @@ const path = require('path');
 let absolutePath = path.join(__dirname, 'public');
 
 module.exports = {
+  mode: 'development',
   entry: './src/app.js',
   // entry: './src/sandbox/hoc.js',
   output: {

@@ -4,7 +4,6 @@ import ExpenseListItem from './ExpenseListItem';
 import { getVisibleExpenses } from '../selectors/expenses';
 
 const ExpenseList = ({ expenses }) => {
-  console.log('expenses', expenses);
   return (
     <div>
       <h1>Expense List</h1>
@@ -19,7 +18,6 @@ const ExpenseList = ({ expenses }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('state', state);
   return {
     expenses: getVisibleExpenses(state.expenses, state.filters),
   };

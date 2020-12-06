@@ -15,6 +15,15 @@ store.subscribe(() => {
   const { expenses, filters } = store.getState();
 });
 
+store.dispatch(
+  addExpense({
+    id: 1,
+    description: 'Water Bill',
+    amount: 4500,
+    createdAt: 1,
+  })
+);
+
 const jsx = (
   <Provider store={store}>
     <AppRouter />;

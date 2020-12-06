@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 // ADD EXPENSE
 export const addExpense = (expense) => {
-  console.log('expense', expense);
   return {
     type: 'ADD_EXPENSE',
     expense: expense,

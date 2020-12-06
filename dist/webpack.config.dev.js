@@ -6,6 +6,7 @@ var absolutePath = path.join(__dirname, 'public');
 module.exports = {
   entry: './src/app.js',
   // entry: './src/sandbox/hoc.js',
+  mode: 'development',
   output: {
     path: absolutePath,
     filename: 'bundle.js',
