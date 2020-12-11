@@ -20,7 +20,7 @@ store.dispatch(
     id: 1,
     description: 'Water Bill',
     amount: 4500,
-    createdAt: 1,
+    createdAt: 1608026400000,
   })
 );
 
@@ -29,7 +29,7 @@ store.dispatch(
     id: 2,
     description: 'Rent Bill',
     amount: 5500,
-    createdAt: 1,
+    createdAt: 1606816800000,
   })
 );
 
@@ -38,7 +38,7 @@ store.dispatch(
     id: 3,
     description: 'Test Bill',
     amount: 25,
-    createdAt: 1,
+    createdAt: 1606903200000,
   })
 );
 
@@ -47,7 +47,7 @@ store.dispatch(
     id: 4,
     description: 'Test - 2 Bill',
     amount: 178.5,
-    createdAt: 1,
+    createdAt: 1608458400000,
   })
 );
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const ExpenseListItem = (props) => {
   const { id, description, amount, createdAt } = props;
@@ -12,7 +13,7 @@ const ExpenseListItem = (props) => {
       </Link>
       <p>
         id = {id}
-        {amount} - create at: {createdAt}
+        {amount} - create at: {moment(createdAt).format('DD/MM/yyyy')}
       </p>
     </div>
   );
