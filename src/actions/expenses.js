@@ -18,7 +18,6 @@ export const removeExpense = (id) => {
 
 // EDIT EXPENSE
 export const editExpense = (expense) => {
-  console.log('pap', expense);
   return {
     type: 'EDIT_EXPENSE',
     expense: expense,
