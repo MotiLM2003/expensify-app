@@ -19,6 +19,7 @@ test('edit expense action', () => {
 
 test('should setup add expense action object  with provided values', () => {
   const expense = {
+    id: '123213',
     description: 'Rent',
     amount: 109500,
     createdAt: 1000,
@@ -29,7 +30,7 @@ test('should setup add expense action object  with provided values', () => {
     type: 'ADD_EXPENSE',
     expense: {
       ...expense,
-      //    id: expect.any(String),  can't add this line because i built it differently from the author but use EXPECT.ANY to EXPECT unpredictable paramater
+      id: expect.any(String),
     },
   });
 });
