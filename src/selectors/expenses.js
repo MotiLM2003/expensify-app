@@ -13,7 +13,7 @@ export const getVisibleExpenses = (
       const endDateMatch = endDate
         ? endDate.isSameOrAfter(createAtMoment, 'day')
         : true;
-      console.log(createAtMoment.format('DD/MM/yyyy'));
+
       const textMatch = expense.description
         .toLowerCase()
         .includes(text.toLowerCase());
