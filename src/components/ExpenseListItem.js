@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-const ExpenseListItem = (props) => {
+export const ExpenseListItem = (props) => {
   const { id, description, amount, createdAt } = props;
   return (
     <div>
