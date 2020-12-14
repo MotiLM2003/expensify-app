@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { addExpense } from '../actions/expenses';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
 
-class ExpenseForm extends React.Component {
+export class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
     const { expense } = this.props;
