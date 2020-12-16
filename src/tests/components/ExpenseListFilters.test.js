@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ExpenseListFilters } from '../../components/ExpenseListFilters';
 import { filters, altFilters } from '../fixtures/filters';
+import moment from 'moment';
 import { wrap } from 'regenerator-runtime';
-
 let setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate, wrapper;
 
 beforeEach(() => {
@@ -50,20 +50,35 @@ test('should handle text change', () => {
 });
 
 test('should sort by date', () => {
+  const value = 'date';
   wrapper.find('select').simulate('change', {
-    target: {
-      value: 'date',
-    },
+    target: { value: value },
   });
-  expect(sortByDate).toHaveBeenCalled();
+  expect(sortByDate).toHaveBeenCalledWith();
 });
 
 test('should sort by amount', () => {
-  const temp;
   wrapper.find('select').simulate('change', {
     target: {
       value: 'amount',
     },
   });
   expect(sortByAmount).toHaveBeenCalled();
+});
+
+test('should handle date change', () => {
+  const startDate = moment(0).add(4, 'years');
+  const endDate = moment().add(8, 'years');
+  wrapper.find('DateRangePicker').prop('onDatesChange')({
+    startDate: startDate,
+    endDate: endDate,
+  });
+  expect(setStartDate).toHaveBeenCalledWith(startDate);
+  expect(setEndDate).toHaveBeenCalledWith(endDate);
+});
+
+test('should handle date focus change', () => {
+  const calendarFocused = 'endDate';
+  wrapper.find('DateRangePicker').prop('onFocusChange')(calendarFocused);
+  expect(wrapper.state('cleandarFocused')).toBe(calendarFocused);
 });

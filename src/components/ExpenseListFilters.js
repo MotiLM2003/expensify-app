@@ -9,47 +9,58 @@ import {
 } from '../actions/filters';
 import { DateRangePicker } from 'react-dates';
 
-export const ExpenseListFilters = (props) => {
-  const [cleandarFocused, setCleandarFocused] = useState(null);
-
-  const onDateChange = ({ startDate, endDate }) => {
-    props.setStartDate(startDate);
-    props.setEndDate(endDate);
+export class ExpenseListFilters extends React.Component {
+  state = { cleandarFocused: null };
+  onDateChange = ({ startDate, endDate }) => {
+    this.props.setStartDate(startDate);
+    this.props.setEndDate(endDate);
   };
-  const onFocusChange = (x) => {
-    setCleandarFocused(x);
+  onFocusChange = (x) => {
+    this.setState({ cleandarFocused: x });
   };
 
-  const onSortChange = (e) => {
+  onSortChange = (e) => {
     const func =
-      e.target.value === 'date' ? props.sortByDate : props.sortByAmount;
+      e.target.value === 'date'
+        ? this.props.sortByDate
+        : this.props.sortByAmount;
     func();
   };
 
-  const onTextChange = (e) => {
-    props.setTextFilter(e.target.value);
+  onTextChange = (e) => {
+    this.props.setTextFilter(e.target.value);
   };
 
-  return (
-    <div>
-      <input type='Text' value={props.filters.text} onChange={onTextChange} />
-      <select value={props.filters.sortBy} onChange={onSortChange}>
-        <option value='date'>Date</option>
-        <option value='amount'>Amount</option>
-      </select>
-      <DateRangePicker
-        startDate={props.filters.startDate}
-        endDate={props.filters.endDate}
-        onDatesChange={onDateChange}
-        focusedInput={cleandarFocused}
-        onFocusChange={onFocusChange}
-        numberOfMonths={1}
-        isOutsideRange={() => false}
-        showClearDates={true}
-      />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <input
+          type='Text'
+          value={this.props.filters.text}
+          onChange={this.onTextChange}
+        />
+        <select value={this.props.filters.sortBy} onChange={this.onSortChange}>
+          <option value='date'>Date</option>
+          <option value='amount'>Amount</option>
+        </select>
+        <DateRangePicker
+          startDate={this.props.filters.startDate}
+          endDate={this.props.filters.endDate}
+          onDatesChange={this.onDateChange}
+          focusedInput={this.state.cleandarFocused}
+          onFocusChange={this.onFocusChange}
+          numberOfMonths={1}
+          isOutsideRange={() => false}
+          showClearDates={true}
+        />
+      </div>
+    );
+  }
+}
+
+// export const ExpenseListFilters = (props) => {
+//   const [cleandarFocused, setCleandarFocused] = useState(null);
+// };
 const mapState = (state) => {
   return {
     filters: state.filters,
