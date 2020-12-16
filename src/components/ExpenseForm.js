@@ -14,7 +14,7 @@ export class ExpenseForm extends React.Component {
       note: expense ? expense.note : '',
       amount: expense ? (expense.amount / 100).toString() : '',
       createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
-      calendarFocused: expense ? expense.calendarFocusedfalse : false,
+      calendarFocused: expense ? expense.calendarFocused : false,
       error: '',
     };
   }
@@ -90,7 +90,9 @@ export class ExpenseForm extends React.Component {
             date={this.state.createdAt}
             onDateChange={this.onDateChange}
             focused={this.state.focused}
-            onFocusChange={({ focused }) => this.setState({ focused })}
+            onFocusChange={({ focused }) =>
+              this.setState({ calendarFocused: focused })
+            }
             numberOfMonths={1}
             isOutsideRange={() => false}
           />
