@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { ExpenseListFilters } from '../../components/ExpenseListFilters';
 import { filters, altFilters } from '../fixtures/filters';
 import moment from 'moment';
-import { wrap } from 'regenerator-runtime';
 let setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate, wrapper;
 
 beforeEach(() => {
