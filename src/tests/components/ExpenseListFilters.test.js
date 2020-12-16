@@ -59,6 +59,7 @@ test('should sort by date', () => {
 });
 
 test('should sort by amount', () => {
+  const temp;
   wrapper.find('select').simulate('change', {
     target: {
       value: 'amount',
